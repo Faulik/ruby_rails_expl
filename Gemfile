@@ -1,19 +1,19 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails'
+gem 'rails', '~> 4.2.4'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18.3'
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0.4'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder'
+gem 'jbuilder', '~> 2.3.2'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', group: :doc
 
 gem 'thin', '~> 1.6.3'
 
-gem 'slim'
+gem 'slim', '~> 3.0.6'
 
 gem 'nokogiri', '~> 1.6.7.rc3'
 
@@ -24,22 +24,22 @@ gem 'nokogiri', '~> 1.6.7.rc3'
 # gem 'capistrano-rails', group: :development
 
 group :test do
-  gem 'rspec-rails'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'fakeweb'
-  gem 'fuubar'
+  gem 'rspec-rails', '~> 3.3.0'
+  gem 'database_cleaner', '~> 1.5.0'
+  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'fakeweb', '~> 1.3.0'
+  gem 'fuubar', '~> 2.0.0'
   gem 'simplecov', require: false
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', '~> 6.0.2'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console'
+  gem 'web-console', '~> 2.2.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

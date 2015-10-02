@@ -188,7 +188,7 @@ DEPENDENCIES
   slim
   thin (~> 1.6.3)
   tzinfo-data
-  web-console
+  web-console (~> 2.2.1)
 
 BUNDLED WITH
    1.10.6

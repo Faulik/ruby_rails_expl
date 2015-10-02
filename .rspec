@@ -1,0 +1,4 @@
+--format fuubar
+--format Nc
+--require spec_helper
+--color
