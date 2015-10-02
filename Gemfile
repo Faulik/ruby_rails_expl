@@ -13,7 +13,7 @@ gem 'sdoc', group: :doc
 
 gem 'thin', '~> 1.6.3'
 
-gem 'slim', '~> 3.0.6'
+gem 'slim-rails'
 
 gem 'nokogiri', '~> 1.6.7.rc3'
 
