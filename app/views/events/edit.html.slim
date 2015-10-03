@@ -1,0 +1,29 @@
+= form_for @event, method: :patch, html: { class: 'form-horizontal' } do |f|
+  
+  - if @event.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@event.errors.count, "error")
+        |  prohibited this event from being saved:
+      ul
+        - @event.errors.full_messages.each do |msg|
+          li = msg
+
+  fieldset
+    legend Editing Event
+    .form-group
+      = f.label :title, class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.text_field :title, class: 'form-control'
+    .form-group
+      = f.label :address, class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.text_field :address, class: 'form-control'
+    .form-group
+      = f.label :started_at, class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.date_select :started_at, class: 'form-control'
+    .form-group
+      .col-lg-10.col-lg-offset-2
+        = link_to 'Back', events_path, class: 'btn btn-default'
+        = f.submit 'Submit', class: 'btn btn-primary'

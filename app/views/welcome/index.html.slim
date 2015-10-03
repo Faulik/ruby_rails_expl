@@ -1,2 +1,26 @@
-h1 Welcome#index
-= link_to 'My Posts', controller: 'posts'
+h1 Latest Posts
+- @posts.each do |post|
+  h3 
+    = link_to post.title, post_path(post)
+  .elipsis_4_lines = post.content
+br
+= link_to 'all posts', controller: 'posts'
+
+h1 Latest Articles
+- @articles.each do |article|
+  h3 
+    = link_to article.title, article_path(article)
+  .elipsis_4_lines = article.content
+br
+= link_to 'All Articles', controller: 'articles'
+
+h1 Latest Events
+- @events.each do |event|
+  h3 = link_to event.title, event_path(event)
+  p 
+    = event.address
+    |  on 
+    = event.started_at
+br
+= link_to 'All Events', controller: 'events'
+

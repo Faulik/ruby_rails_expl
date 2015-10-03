@@ -1,8 +1,6 @@
-p
-  strong Title: 
+h1
   = @post.title
-p
-  strong Text: 
-  = @post.content
-
+= simple_format(@post.content)
+br
+br
 = link_to 'Back', posts_path

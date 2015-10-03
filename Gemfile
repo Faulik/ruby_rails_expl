@@ -9,13 +9,19 @@ gem 'sass-rails', '~> 5.0.4'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.3.2'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', group: :doc
+gem 'sdoc', '~> 0.4.1', group: :doc
+# Use jquery as the JavaScript library
+gem 'jquery-rails', '~> 4.0.5'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks', '~> 2.5.3'
 
 gem 'thin', '~> 1.6.3'
 
-gem 'slim-rails'
+gem 'slim-rails', '~> 3.0.1'
 
 gem 'nokogiri', '~> 1.6.7.rc3'
+
+gem 'kaminari', '~> 0.16.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
+  resources :events do
+    resources :comments, only: [:index, :new, :create]
+  end
 
-  resources :posts
+  resources :articles do
+    resources :comments, only: [:index, :new, :create]
+  end
+
+  resources :posts do
+    resources :comments, only: [:index, :new, :create]
+  end
+
+  resources :comments, only: [:show, :edit, :update, :destroy]
 
   root 'welcome#index'
 

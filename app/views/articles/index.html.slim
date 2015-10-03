@@ -1,0 +1,11 @@
+h1 All Articles
+
+= link_to 'New Article', new_article_path
+
+- @articles.each do |article|
+  h3 
+    = link_to article.title, article_path(article)
+  .elipsis_4_lines = article.content
+  = link_to 'Edit', edit_article_path(article)
+
+= paginate @articles

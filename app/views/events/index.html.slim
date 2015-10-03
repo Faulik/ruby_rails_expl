@@ -1,0 +1,12 @@
+h1 All Events
+
+= link_to 'New Event', new_event_path
+
+- @events.each do |event|
+  h3 = link_to event.title, event_path(event)
+  p 
+    = event.address
+    |  on 
+    = event.started_at
+  = link_to 'Edit', edit_event_path(event)
+= paginate @events

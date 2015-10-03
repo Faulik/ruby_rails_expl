@@ -1,7 +1,31 @@
 html
 head
   title RubyRails
-  = stylesheet_link_tag 'application', media: 'all'
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true 
   = csrf_meta_tags
 body
-  == yield
+
+  nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand href='/' Ruby Smthg
+
+      .collapse.navbar-collapse#bs-example-navbar-collapse-1
+        ul.nav.navbar-nav
+          li
+            = link_to 'Posts', controller: 'posts'
+          li
+            = link_to 'Articles', controller: 'articles'
+          li
+            = link_to 'Events', controller: 'events'
+        ul.nav.navbar-nav.navbar-right
+          li
+            a href='#' #
+  .container
+    == yield
