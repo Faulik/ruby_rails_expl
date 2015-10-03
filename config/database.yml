@@ -79,11 +79,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
   <<: *default
-  database: ruby_rails_expl_production
-  username: ruby
-  password: noway
+  url: <%= ENV['DATABASE_URL'] %>
+# 
+# production:
+  # database: ruby_rails_expl_production
+  # username: ruby
+  # password: noway
