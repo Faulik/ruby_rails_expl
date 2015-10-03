@@ -5,10 +5,12 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comments = @article.comments.page params[:page]
   end
 
   def new
     @article = Article.new
+    @article.build_picture
   end
 
   def edit
@@ -45,6 +47,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :content, :slug)
+    params.require(:article).permit(:title, :content, :slug, picture_attributes: [:data])
   end
 end

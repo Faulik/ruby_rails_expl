@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002192447) do
+ActiveRecord::Schema.define(version: 20151003150236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,16 +22,29 @@ ActiveRecord::Schema.define(version: 20151002192447) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "image"
   end
 
+  create_table "assets", force: :cascade do |t|
+    t.text     "filename"
+    t.text     "content_type"
+    t.integer  "file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "assets", ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id", using: :btree
+
   create_table "comments", force: :cascade do |t|
-    t.text     "author_name"
-    t.text     "author_email"
+    t.text     "author_name",  default: "Anonymous"
+    t.text     "author_email", default: "anonymous@dot.com"
     t.text     "content"
     t.integer  "target_id"
     t.string   "target_type"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "comments", ["target_type", "target_id"], name: "index_comments_on_target_type_and_target_id", using: :btree

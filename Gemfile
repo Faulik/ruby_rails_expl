@@ -23,6 +23,8 @@ gem 'nokogiri', '~> 1.6.7.rc3'
 
 gem 'kaminari', '~> 0.16.1'
 
+gem 'carrierwave', '~> 0.10.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

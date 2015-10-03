@@ -1,2 +1,8 @@
-h1 Comments#index
-p Find me in app/views/comments/index.html.slim
+h3 Comments
+- commentable.each do |comment|
+  .well
+    h4 
+      = comment.author_name 
+      |  
+      small  = comment.author_email
+    p = comment.content

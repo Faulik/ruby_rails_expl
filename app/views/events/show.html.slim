@@ -1,7 +1,11 @@
 h1 = @event.title
 p = @event.address
-  | on
-  = @event.started_at
+| on 
+= @event.started_at
 br
 br
 = link_to 'Back', events_path
+
+= render template: 'comments/index', locals: { commentable: @comments }
+
+= render template: 'comments/new', locals: { commentable: @event } 

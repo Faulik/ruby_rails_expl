@@ -1,6 +1,11 @@
+= image_tag(@article.picture.data_url, class: 'img-responsive') if @article.picture
 h1
   = @article.title
 = simple_format(@article.content)
 br
 br
 = link_to 'Back', articles_path
+
+= render template: 'comments/index', locals: { commentable: @comments }
+
+= render template: 'comments/new', locals: { commentable: @article } 

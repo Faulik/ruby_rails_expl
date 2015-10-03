@@ -1,4 +1,4 @@
-= form_for @article, html: { class: 'form-horizontal' } do |f|
+= form_for @article, html: { multipart: true, class: 'form-horizontal' } do |f|
   
   - if @article.errors.any?
     #error_explanation
@@ -19,6 +19,11 @@
       = f.label :slug, class: 'col-lg-2 control-label'
       .col-lg-10
         = f.text_area :slug, class: 'form-control', rows: 4
+    .form-group
+      = f.fields_for :picture do |pic|
+        = pic.label :data, class: 'col-lg-2 control-label'
+        .col-lg-10
+          = pic.file_field :data
     .form-group
       = f.label :content, class: 'col-lg-2 control-label'
       .col-lg-10

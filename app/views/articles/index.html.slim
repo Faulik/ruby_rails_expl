@@ -7,5 +7,9 @@ h1 All Articles
     = link_to article.title, article_path(article)
   .elipsis_4_lines = article.content
   = link_to 'Edit', edit_article_path(article)
-
+  |  
+  = link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }
+br
 = paginate @articles
