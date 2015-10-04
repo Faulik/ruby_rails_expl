@@ -2,7 +2,7 @@
 
 http://rubyblogs.herokuapp.com/
 
-* all files can be lost after new comment =(
+* all files will be lost after new commit =(
 
 ### Database 
 
