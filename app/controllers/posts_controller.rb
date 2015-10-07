@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments.page params[:page]
+    @tags = @post.tag_slugs
   end
 
   def new
@@ -46,6 +47,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :slug)
+    params.require(:post).permit(:title, :content, :slug, tag_slugs: [])
   end
 end

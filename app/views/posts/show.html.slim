@@ -2,6 +2,11 @@ h1
   = @post.title
 = simple_format(@post.content)
 br
+div 
+  | Tags: 
+  - @tags.each do |tag|
+    span.label.label-default = link_to tag, controller: 'tags', action: 'show', id: tag
+br
 br
 = link_to 'Back', posts_path
 

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create], module: :posts
   end
 
+  resources :tags, only: [:show]
+
   resources :comments, only: [:show, :edit, :update, :destroy]
 
   root 'welcome#index'

@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  include Taggable
+
   validates :title, presence: true, length: { minimum: 4 }
   validates :content, presence: true
 

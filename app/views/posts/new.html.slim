@@ -20,6 +20,10 @@
       .col-lg-10
         = f.text_area :content, class: 'form-control', rows: 10
     .form-group
+      = f.label :tag_ids, class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.select(:tag_ids, Tag.all.collec(&:slug), {}, {class: 'form-control', id: 'list-tags', multiple: true})
+    .form-group
       .col-lg-10.col-lg-offset-2
         = link_to 'Back', posts_path, class: 'btn btn-default'
         = f.submit 'Submit', class: 'btn btn-primary'
