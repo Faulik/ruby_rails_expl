@@ -31,6 +31,9 @@ gem 'prawn', '~> 2.0.2'
 gem 'ransack', '~> 1.7.0'
 # Select boxes
 gem 'select2-rails', '~> 4.0.0'
+# Html to pdf converter
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary', '~> 0.9.9.3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
