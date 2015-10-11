@@ -58,7 +58,7 @@ namespace :populate do
 
   desc 'Create random tags'
   task tags: [:environment] do
-    _tags = Faker::Lorem.words(60).uniq
+    _tags = Faker::Lorem.words(20).uniq
     Tag.populate(_tags.count) do |tag|
       _tag = _tags.pop
       tag.name = _tag

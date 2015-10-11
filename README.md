@@ -2,7 +2,16 @@
 
 http://rubyblogs.herokuapp.com/
 
-* all files will be lost after new commit =(
+* all uploaded files will be lost after new commit =(
+
+### Db fixtures
+
+Generate tags first for them to be used in posts, articles or events.
+
+'rake populate:tags'
+'rake populate:posts'
+'rake populate:articles'
+'rake populate:events'
 
 ### Database 
 
