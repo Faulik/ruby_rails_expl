@@ -32,14 +32,12 @@ gem 'ransack', '~> 1.7.0'
 # Select boxes
 gem 'select2-rails', '~> 4.0.0'
 # Html to pdf converter
-gem 'pdfkit'
+gem 'wicked_pdf', '~> 0.11.0'
 gem 'wkhtmltopdf-binary', '~> 0.9.9.3'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+# Fixture generators
+gem 'populator', '~> 1.0.0'
+gem 'faker', '~> 1.5.0'
 
 group :test do
   gem 'rspec-rails', '~> 3.3.0'
@@ -53,9 +51,9 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 6.0.2'
-end
-
-group :development do
+  gem 'pry', '~> 0.10.2'
+  # Annotation for models
+  gem 'annotate', '~> 2.6.10'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.2.1'
 end
