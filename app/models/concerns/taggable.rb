@@ -6,11 +6,11 @@ module Taggable
     scope :all_tags, -> (tags){ where('tag_slugs @> ARRAY[?]', Array.wrap(tags)) }    
   end
 
-  def tag_slugs=(value)
-    value.reject!(&:blank?)
+  def tag_slugs=(_all)
+    _all.reject!(&:blank?)
 
-    _exist = Tag.where(slug: value).map(&:slug)
-    _non_exist = value - _exist
+    _exist = Tag.where(slug: _all).map(&:slug)
+    _non_exist = _all - _exist
 
     append _non_exist
 

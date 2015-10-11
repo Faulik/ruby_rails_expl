@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
   validates :content, presence: true
   validates :slug, presence: true
 
-  paginates_per 3
+  paginates_per 5
 
   has_many :comments, as: :target
 

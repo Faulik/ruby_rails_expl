@@ -32,7 +32,7 @@ gem 'ransack', '~> 1.7.0'
 # Select boxes
 gem 'select2-rails', '~> 4.0.0'
 # Html to pdf converter
-gem 'wicked_pdf', '~> 0.11.0'
+gem 'pdfkit', '~> 0.8.2'
 gem 'wkhtmltopdf-binary', '~> 0.9.9.3'
 
 # Fixture generators
