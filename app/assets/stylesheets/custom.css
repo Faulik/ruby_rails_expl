@@ -24,8 +24,10 @@
 .label > a {
   color: white
 }
-#post_tag_ids {
-  
+
+.tag_cloud > span {
+    display: inline-block;
+    padding-right: 4px;
 }
 
 .tag_0 {
