@@ -3,6 +3,11 @@ p = @event.address
 | on 
 = @event.started_at
 br
+div 
+  | Tags: 
+  - @tags.each do |tag|
+    span.label.label-default = link_to tag, controller: 'tags', action: 'show', id: tag
+br
 br
 = link_to 'Back', events_path
 

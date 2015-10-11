@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @comments = @article.comments.page params[:page]
+    @tags = @article.tag_slugs
   end
 
   def new

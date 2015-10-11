@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @comments = @event.comments.page params[:page]
+    @tags = @event.tag_slugs
   end
 
   def new

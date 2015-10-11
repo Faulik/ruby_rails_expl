@@ -1,0 +1,11 @@
+h1
+  | Article: 
+  = link_to article.title, article_path(article)
+.elipsis_4_lines
+  = simple_format(article.content)
+br
+div 
+  | Tags: 
+  - article.tag_slugs.each do |tag|
+    span.label.label-default = link_to tag, controller: 'tags', action: 'show', id: tag
+br

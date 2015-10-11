@@ -1,0 +1,12 @@
+h1
+  | Post: 
+  = link_to post.title, article_path(post)
+p
+  | With slug: 
+  = post.slug
+br
+div 
+  | Tags: 
+  - post.tag_slugs.each do |tag|
+    span.label.label-default = link_to tag, controller: 'tags', action: 'show', id: tag
+br

@@ -3,6 +3,11 @@ h1
   = @article.title
 = simple_format(@article.content)
 br
+div 
+  | Tags: 
+  - @tags.each do |tag|
+    span.label.label-default = link_to tag, controller: 'tags', action: 'show', id: tag
+br
 br
 = link_to 'Back', articles_path
 

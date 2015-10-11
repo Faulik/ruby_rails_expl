@@ -1,6 +1,9 @@
-h1 Posts
-- @posts.each do |post|
-  h3 
-    = link_to post.title, post_path(post)
-  .elipsis_4_lines = post.content
-br
+h1
+  | Tag: 
+  = @tag.name
+
+section
+  = render @content
+  
+.footer
+  = paginate @content

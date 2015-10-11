@@ -2,7 +2,7 @@ class TagsController < ApplicationController
   before_action :find_tag
 
   def show
-    @posts = Post.any_tags(@tag.slug).order(:id).limit(50)
+    @content = ContentView.any_tags(@tag.slug).order(:id).page params[:page]
   end
 
   protected

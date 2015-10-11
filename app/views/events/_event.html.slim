@@ -1,0 +1,14 @@
+h1
+  | Post: 
+  = link_to event.title, article_path(event)
+p
+  | at: 
+  = event.address
+  |  on: 
+  = event.started_at
+br
+div 
+  | Tags: 
+  - event.tag_slugs.each do |tag|
+    span.label.label-default = link_to tag, controller: 'tags', action: 'show', id: tag
+br
