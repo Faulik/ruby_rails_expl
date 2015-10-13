@@ -10,10 +10,16 @@ class WelcomeController < ApplicationController
 
   def count_tags
     _tags = []
+    _count = count_tags_enries
+
     Tag.all.each do |tag|
-      _count = ContentView.any_tags(tag.slug).count
-      _tags << { tag: tag, count: _count.round(-1) }
+      _tags << { tag: tag, count: _count[tag.slug].round(-1) }
     end
     _tags
+  end
+
+  def count_tags_enries
+    _slugs = ContentView.all.pluck(:tag_slugs).flatten
+    _slugs.each_with_object(Hash.new(0)) { |slug, hash| hash[slug] += 1 }
   end
 end
