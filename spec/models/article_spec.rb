@@ -8,6 +8,7 @@
 #  content    :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  tag_slugs  :text             default([]), is an Array
 #
 
 require 'rails_helper'

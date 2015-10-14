@@ -47,6 +47,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :slug, tag_slugs: [])
+    params.require(:post).permit(:title, :content, :slug, :title_bg_color,
+                                 :font_size, tag_slugs: [])
   end
 end

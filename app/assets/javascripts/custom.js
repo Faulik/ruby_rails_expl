@@ -24,4 +24,12 @@ $(document).on('ready page:load', function () {
       return object.text;
     }
   });
+
+  $(".list-title_bg_color").select2({
+    theme: "bootstrap"
+  })
+  
+  $(".list-font_size").select2({
+    theme: "bootstrap"
+  })
 });

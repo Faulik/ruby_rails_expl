@@ -17,6 +17,14 @@
       .col-lg-10
         = f.text_field :title, class: 'form-control'
     .form-group
+      = f.label :title_bg_color, class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.select(:title_bg_color, ['info', 'success', 'warning', 'normal'], {}, {class: 'form-control', id: 'list-title_bg_color'})
+    .form-group
+      = f.label :font_size, class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.select(:font_size, ['small', 'medium', 'big'], {}, {class: 'form-control', id: 'list-font_size'})
+    .form-group
       = f.label :content, class: 'col-lg-2 control-label'
       .col-lg-10
         = f.text_area :content, class: 'form-control', rows: 10

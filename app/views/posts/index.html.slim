@@ -1,11 +1,11 @@
 h1 All Posts
 
 = link_to 'New Post', new_post_path
-
 - @posts.each do |post|
-  h3 
-    = link_to post.title, post_path(post)
-  .elipsis_4_lines = post.content
-  = link_to 'Edit', edit_post_path(post)
+  - cache(post) do
+    h3 
+      = link_to post.title, post_path(post)
+    .elipsis_4_lines = post.content
+      = link_to 'Edit', edit_post_path(post)
 br
 = paginate @posts

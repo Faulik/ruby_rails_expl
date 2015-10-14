@@ -19,7 +19,7 @@ class WelcomeController < ApplicationController
   end
 
   def count_tags_enries
-    _slugs = ContentView.all.pluck(:tag_slugs).flatten
-    _slugs.each_with_object(Hash.new(0)) { |slug, hash| hash[slug] += 1 }
+    ContentView.all.pluck(:tag_slugs).flatten
+      .each_with_object(Hash.new(0)) { |slug, hash| hash[slug] += 1 }
   end
 end

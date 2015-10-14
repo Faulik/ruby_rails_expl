@@ -61,3 +61,30 @@
 .tag_70 {
   font-size: 4.0em
 }
+
+.small-content {
+  font-size: 0.8em
+}
+
+.medium-content {
+  font-size: 1em
+}
+
+.big-content {
+  font-size: 1.4em
+}
+
+.info {
+  background-color: #D9EDF7
+}
+
+.success {
+  background-color: #DFF0D8
+}
+
+.warning {
+  background-color: #FCF8E3
+}
+
+.normal {
+}

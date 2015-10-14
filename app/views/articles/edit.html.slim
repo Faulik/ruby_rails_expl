@@ -19,11 +19,20 @@
     .form-group
       = f.label :slug, class: 'col-lg-2 control-label'
       .col-lg-10
-        = f.text_area :slug, class: 'form-control', rows: 4
+        = f.text_area :slug, class: 'form-control', rows: 1
+    .form-group
+      = f.fields_for :picture do |pic|
+        = pic.label :data, class: 'col-lg-2 control-label'
+        .col-lg-10
+          = pic.file_field :data
     .form-group
       = f.label :content, class: 'col-lg-2 control-label'
       .col-lg-10
         = f.text_area :content, class: 'form-control', rows: 10
+    .form-group
+      = f.label :tag_slugs, class: 'col-lg-2 control-label'
+      .col-lg-10
+        = f.select(:tag_slugs, Tag.all.collect {|tag| [tag.slug, tag.slug] }, {}, {class: 'form-control list-tags', multiple: true})
     .form-group
       .col-lg-10.col-lg-offset-2
         = link_to 'Back', articles_path, class: 'btn btn-default'
