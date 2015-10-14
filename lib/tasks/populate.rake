@@ -46,6 +46,7 @@ namespace :populate do
       post.slug = Faker::Internet.slug
       post.content = Populator.paragraphs(6)
       post.tag_slugs = _tags.sample(5).to_s.tr('[', '{').tr(']', '}')
+      post.settings = "title_bg_color => #{%w(info success normal).sample} "
       Comment.populate(20..30) do |comment|
         comment.target_id = post.id
         comment.target_type = 'Post'
@@ -64,5 +65,17 @@ namespace :populate do
       tag.name = _tag
       tag.slug = _tag
     end
+  end
+
+  desc 'Create random tags, posts, articles and events'
+  task all: [:environment] do
+    Rake::Task['populate:tags'].invoke
+    puts 'Tags done'
+    Rake::Task['populate:posts'].invoke
+    puts 'Posts done'
+    Rake::Task['populate:articles'].invoke
+    puts 'Articles done'
+    Rake::Task['populate:events'].invoke
+    puts 'Events done'
   end
 end

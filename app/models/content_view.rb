@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: content_views
+#
+#  id         :integer
+#  title      :text
+#  type       :text
+#  slug       :text
+#  content    :text
+#  address    :text
+#  started_at :datetime
+#  tag_slugs  :text             is an Array
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class ContentView < ActiveRecord::Base
   self.table_name = 'content_views'
 

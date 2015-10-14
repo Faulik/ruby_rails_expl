@@ -8,6 +8,7 @@
 #  started_at :datetime
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  tag_slugs  :text             default([]), is an Array
 #
 
 class Event < ActiveRecord::Base

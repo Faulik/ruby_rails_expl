@@ -13,6 +13,10 @@ Generate tags first for them to be used in posts, articles or events.
 'rake populate:articles'
 'rake populate:events'
 
+or
+
+'rake populate:all'
+
 ### Database 
 
 `rake db:migrate`
