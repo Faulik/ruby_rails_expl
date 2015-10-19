@@ -35,6 +35,8 @@ gem 'select2-rails', '~> 4.0.0'
 gem 'pdfkit', '~> 0.8.2'
 gem 'wkhtmltopdf-binary', '~> 0.9.9.3'
 
+gem 'faye-websocket'
+
 # Fixture generators
 gem 'populator', '~> 1.0.0'
 gem 'faker', '~> 1.5.0'
