@@ -1,12 +1,12 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.page params[:page]
+    @events = Event.order('updated_at DESC').page params[:page]
   end
 
   def show
     @event = Event.find(params[:id])
     if stale?(@event)
-      @comments = @event.comments.page params[:page]
+      @comments = @event.comments.order('updated_at DESC').page params[:page]
       @tags = @event.tag_slugs
     end
   end

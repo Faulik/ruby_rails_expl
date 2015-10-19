@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.page params[:page]
+    @articles = Article.order('updated_at DESC').page params[:page]
   end
 
   def show
     @article = Article.find(params[:id])
-    @comments = @article.comments.page params[:page]
+    @comments = @article.comments.order('updated_at DESC').page params[:page]
     @tags = @article.tag_slugs
   end
 

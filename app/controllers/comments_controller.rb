@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.page params[:page]
+    @comments = Comment.order('updated_at DESC').page params[:page]
   end
 
   def show

@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.page params[:page]
+    @posts = Post.order('updated_at DESC').page params[:page]
   end
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.page params[:page]
+    @comments = @post.comments.order('updated_at DESC').page params[:page]
     @tags = @post.tag_slugs
   end
 

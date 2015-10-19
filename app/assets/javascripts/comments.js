@@ -6,7 +6,7 @@ $(document).on('ready page:load', function () {
   ws.onmessage = function(message) {
     var data = JSON.parse(message.data);
     $("#comment_container").prepend("<div class='well'>" +
-                                     "<h4>Anonymous</h4>" +
+                                     "<h4>" + data.author_name + "<small> " + data.author_email + "</small></h4>" +
                                      "<p>"+ data.text + "</p>" +
                                    "</div>"
                                    );
@@ -17,10 +17,10 @@ $(document).on('ready page:load', function () {
 
 
   $("#new_comment").on("submit", function(event) {
-    event.preventDefault();
     var text   = $("#comment_content")[0].value;
-    ws.send(JSON.stringify({ text: text }));
-    $("#comment_content")[0].value = "";
+    var author_name = "Anonymous"
+    var author_email = "anonymous@dot.com"
+    ws.send(JSON.stringify({ text: text, author_name: author_name , author_email: author_email }));
   });
 
   window.onbeforeunload = function() {

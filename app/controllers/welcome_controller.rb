@@ -1,8 +1,8 @@
 class WelcomeController < ApplicationController
   def index
-    @posts = Post.last(3).reverse
-    @articles = Article.last(3).reverse
-    @events = Event.last(3).reverse
+    @posts = Post.order('updated_at DESC').last(3).reverse
+    @articles = Article.order('updated_at DESC').last(3).reverse
+    @events = Event.order('updated_at DESC').last(3).reverse
     @tag_cloud = count_tags
   end
 
