@@ -4,7 +4,7 @@ div class="#{@post.font_size}-content"
   = simple_format(@post.content)
 br
 div 
-  | Tags: 
+  = t 'posts.show.tags' 
   - @tags.each do |tag|
     span.label.label-default = link_to tag, controller: 'tags', action: 'show', id: tag
 br
@@ -13,4 +13,4 @@ br
 
 = render template: 'comments/index', locals: { commentable: @comments }
 
-= render template: 'comments/new', locals: { commentable: @post } 
+= render template: 'comments/new', locals: { commentable: @post }

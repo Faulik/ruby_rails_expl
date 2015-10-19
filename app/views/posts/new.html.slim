@@ -4,13 +4,13 @@
     #error_explanation
       h2
         = pluralize(@post.errors.count, "error")
-        |  prohibited this post from being saved:
+        = t 'errors.error_message'
       ul
         - @post.errors.full_messages.each do |msg|
           li = msg
 
   fieldset
-    legend New Post
+    legend = t 'posts.edit.legend'
     .form-group
       = f.label :title, class: 'col-lg-2 control-label'
       .col-lg-10
@@ -28,9 +28,9 @@
       .col-lg-10
         = f.text_area :content, class: 'form-control', rows: 10
     .form-group
-      = f.label :tag_ids, class: 'col-lg-2 control-label'
+      = f.label :tag_slugs, class: 'col-lg-2 control-label'
       .col-lg-10
-        = f.select(:tag_ids, Tag.all.collect(&:slug), {}, {class: 'form-control', id: 'list-tags', multiple: true})
+        = f.select(:tag_slugs, Tag.all.collect(&:slug), {}, {class: 'form-control', id: 'list-tags', multiple: true})
     .form-group
       .col-lg-10.col-lg-offset-2
         = link_to 'Back', posts_path, class: 'btn btn-default'

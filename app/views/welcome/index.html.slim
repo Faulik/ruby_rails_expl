@@ -1,10 +1,10 @@
-h1 Tags cloud
+h1 = t 'welcome.tag_cloud'
 .tag_cloud
   - @tag_cloud.each do |element|
     span class="tag_#{element[:count]}"
       = link_to element[:tag].name, element[:tag]
 
-h1 Latest Posts
+h1 = t 'welcome.last_posts'
 - @posts.each do |post|
   h3 
     = link_to post.title, post_path(post)
@@ -12,7 +12,7 @@ h1 Latest Posts
 br
 = link_to 'all posts', controller: 'posts'
 
-h1 Latest Articles
+h1 = t 'welcome.last_articles'
 - @articles.each do |article|
   h3 
     = link_to article.title, article_path(article)
@@ -20,7 +20,7 @@ h1 Latest Articles
 br
 = link_to 'All Articles', controller: 'articles'
 
-h1 Latest Events
+h1 = t 'welcome.last_events'
 - @events.each do |event|
   h3 = link_to event.title, event_path(event)
   p 

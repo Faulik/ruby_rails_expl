@@ -1,10 +1,11 @@
-h3 Comments
-- commentable.each do |comment|
-  .well
-    h4 
-      = comment.author_name 
-      |  
-      small  = comment.author_email
-    p = comment.content
+h3 = t 'comments.index.title'
+#comment_container
+  - commentable.each do |comment|
+    .well
+      h4 
+        = comment.author_name 
+        |  
+        small  = comment.author_email
+      p = comment.content
 
 = paginate commentable

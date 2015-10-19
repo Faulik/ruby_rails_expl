@@ -5,12 +5,12 @@
       #error_explanation
         h2
           = pluralize(@article.errors.count, 'error') 
-          |  prohibited this article from being saved:
+          = t 'errors.error_message'
         ul
           - @article.errors.full_messages.each do |msg|
             li = msg
   fieldset
-    legend Editing article
+    legend = t 'articles.edit.legend'
 
     .form-group
       = f.label :title, class: 'col-lg-2 control-label'

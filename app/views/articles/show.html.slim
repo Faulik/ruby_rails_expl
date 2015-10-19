@@ -4,7 +4,7 @@ h1
 = simple_format(@article.content)
 br
 div 
-  | Tags: 
+  = t 'articles.show.tags' 
   - @tags.each do |tag|
     span.label.label-default = link_to tag, controller: 'tags', action: 'show', id: tag
 br

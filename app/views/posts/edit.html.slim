@@ -5,12 +5,12 @@
       #error_explanation
         h2
           = pluralize(@post.errors.count, 'error') 
-          |  prohibited this post from being saved:
+          = t 'errors.error_message'
         ul
           - @post.errors.full_messages.each do |msg|
             li = msg
   fieldset
-    legend Editing post
+    legend = t 'posts.edit.legend'
 
     .form-group
       = f.label :title, class: 'col-lg-2 control-label'

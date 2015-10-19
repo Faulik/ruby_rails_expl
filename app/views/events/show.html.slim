@@ -1,10 +1,10 @@
 h1 = @event.title
 p = @event.address
-| on 
+= t 'events.show.on_date'
 = @event.started_at
 br
 div 
-  | Tags: 
+  = t 'events.show.tags'
   - @tags.each do |tag|
     span.label.label-default = link_to tag, controller: 'tags', action: 'show', id: tag
 br
