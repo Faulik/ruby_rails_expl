@@ -3,6 +3,12 @@ $(document).on('ready page:load', function () {
   var uri      = scheme + window.document.location.host + "/";
   var ws       = new WebSocket(uri);
 
+  ws.onopen = function() {
+    ws.send(JSON.stringify({ event_name: 'register', 
+                             data: { path: window.document.location.pathname }
+                           }));
+  };
+
   ws.onmessage = function(message) {
     var data = JSON.parse(message.data);
     $("#comment_container").prepend("<div class='well'>" +
@@ -16,16 +22,22 @@ $(document).on('ready page:load', function () {
   };
 
 
+
   $("#new_comment").on("submit", function(event) {
     var text   = $("#comment_content")[0].value;
-    var author_name = "Anonymous"
-    var author_email = "anonymous@dot.com"
-    ws.send(JSON.stringify({ text: text, author_name: author_name , author_email: author_email }));
+    var author_name = "Anonymous";
+    var author_email = "anonymous@dot.com";
+    ws.send(JSON.stringify({ event_name: 'message',  
+                             data: { path: window.document.location.pathname,
+                                     text: text, 
+                                     author_name: author_name,
+                                     author_email: author_email }
+                           }));
   });
 
   window.onbeforeunload = function() {
-      websocket.onclose = function () {}; // disable onclose handler first
-      websocket.close()
+      ws.onclose = function () {}; // disable onclose handler first
+      ws.close()
   };
 
 });

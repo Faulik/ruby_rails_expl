@@ -1,4 +1,6 @@
 require 'faye/websocket'
+require 'json'
+
 Faye::WebSocket.load_adapter('thin')
 
 
@@ -8,6 +10,7 @@ class ChatBackend
   def initialize(app)
     @app = app
     @clients = []
+    @channels = {}
   end
 
   def call(env)
@@ -21,7 +24,13 @@ class ChatBackend
 
       ws.on :message do |event|
         p [:message, event.data]
-        @clients.each { |client| client.send(event.data) }
+        _data = JSON.parse(event.data)
+        case _data["event_name"]
+        when "register"
+          register(_data["data"], ws)
+        when "message"
+          message(_data["data"])          
+        end
       end
 
       ws.on :close do |event|
@@ -34,5 +43,13 @@ class ChatBackend
     else
       @app.call(env)  
     end
+  end
+
+  def register(data, ws)
+    ( @channels[data["path"]] ||= [] ) << ws 
+  end
+
+  def message(data)
+    @channels[data["path"]].each { |client| client.send(JSON.generate(data)) }
   end
 end
