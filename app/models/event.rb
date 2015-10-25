@@ -12,7 +12,7 @@
 #
 
 class Event < ActiveRecord::Base
-  validates :title, presence: true
+  validates :title, presence: true, length: { minimum: 4 }
   validates :address, presence: true
   validates :started_at, presence: true
 

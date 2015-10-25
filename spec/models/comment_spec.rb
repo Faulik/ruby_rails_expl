@@ -15,5 +15,15 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'is valid with a author_name, author_email, target_type and content' do
+    expect(FactoryGirl.build(:comment)).to be_valid
+  end
+
+  it 'is invalid without content' do
+    expect(FactoryGirl.build(:comment, content: nil)).not_to be_valid
+  end
+
+  it 'is invalid without target_type' do
+    expect(FactoryGirl.build(:comment, target_type: nil)).not_to be_valid
+  end
 end
